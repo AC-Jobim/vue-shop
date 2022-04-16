@@ -25,11 +25,15 @@ axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 // $是在 Vue 所有实例中都可用的属性的一个简单约定。这样做会避免和已被定义的数据、方法、计算属性产生冲突。
 // 通过在原型上定义它们使其在每个Vue实例中可用。
 Vue.prototype.$http = axios
+axios.interceptors.request.use(config => {
+  // console.log(config)
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  // 在最后必须 return config
+  return config
+})
+
 
 Vue.config.productionTip = false
-
-
-
 
 new Vue({
   router,
