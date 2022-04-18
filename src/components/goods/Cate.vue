@@ -242,7 +242,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 .ZKTable {
 	margin-top: 15px;
 }
